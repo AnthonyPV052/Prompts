@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Agents SaaS Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            boxShadow: {
+              glow: '0 10px 30px rgba(59, 130, 246, 0.12)',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .dropdown-menu {
+        display: none;
+      }
+      .dropdown-open .dropdown-menu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen">
+    <div class="min-h-screen flex">
+      <aside class="w-72 bg-white/90 backdrop-blur border-r border-slate-200 dark:bg-slate-900/95 dark:border-slate-800 p-6 fixed inset-y-0 left-0">
+        <div class="flex items-center justify-between mb-10">
+          <div>
+            <p class="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">Plataforma SaaS</p>
+            <h1 class="text-2xl font-semibold mt-2">AI Agents</h1>
+          </div>
+          <button id="themeToggle" class="inline-flex items-center justify-center h-10 w-10 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800" aria-label="Alternar modo oscuro"></button>
+        </div>
+
+        <nav class="space-y-2 text-sm">
+          <a href="#dashboard" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Dashboard</a>
+          <a href="#users" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Usuarios</a>
+          <a href="#agents" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Agentes</a>
+          <a href="#skills" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
+          <a href="#contracts" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Contratos</a>
+          <a href="#errors" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Errores</a>
+        </nav>
+      </aside>
+
+      <main class="flex-1 ml-72 p-8">
+        <section id="dashboard" class="space-y-6">
+          <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Resumen operativo</p>
+              <h2 class="text-3xl font-semibold">Panel de Control</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 max-w-xl">Monitorea ingresos, agentes activos, errores y contratos desde un solo lugar.</p>
+          </header>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-sm text-slate-500 dark:text-slate-400">Ingresos mensuales totales</p>
+              <p class="mt-4 text-3xl font-semibold">$138,450</p>
+              <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Generados por todos los agentes en producción.</p>
+            </article>
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-sm text-slate-500 dark:text-slate-400">Pérdida por descuentos</p>
+              <p class="mt-4 text-3xl font-semibold">$9,720</p>
+              <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Cupones y promociones aplicadas este mes.</p>
+            </article>
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-sm text-slate-500 dark:text-slate-400">Agentes activos</p>
+              <p class="mt-4 text-3xl font-semibold">128</p>
+              <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Agentes desplegados actualmente con clientes.</p>
+            </article>
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-sm text-slate-500 dark:text-slate-400">Agentes fallando</p>
+              <p class="mt-4 text-3xl font-semibold text-rose-600 dark:text-rose-400">11</p>
+              <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Incidentes detectados en los últimos 30 minutos.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="users" class="mt-12 space-y-6">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h3 class="text-2xl font-semibold">Gestión de Usuarios</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Administra cuentas, planes y estados de tus clientes.</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <table class="min-w-full text-left text-sm text-slate-700 dark:text-slate-200">
+              <thead class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+                <tr>
+                  <th class="px-6 py-4">Nombre</th>
+                  <th class="px-6 py-4">Email</th>
+                  <th class="px-6 py-4">Plan</th>
+                  <th class="px-6 py-4">Estado</th>
+                  <th class="px-6 py-4">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                <tr>
+                  <td class="px-6 py-4">María González</td>
+                  <td class="px-6 py-4">maria@empresa.com</td>
+                  <td class="px-6 py-4">Premium</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">David Ruiz</td>
+                  <td class="px-6 py-4">david@startup.io</td>
+                  <td class="px-6 py-4">Básico</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Pendiente</span></td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="agents" class="mt-12 space-y-6">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h3 class="text-2xl font-semibold">Agentes Registrados</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Controla estado, propietario y skills de cada agente.</p>
+            </div>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Asistente RH</h4>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Propietario: TalentPro</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                  <span class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
+                  <div class="relative">
+                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <details class="mt-4 rounded-2xl bg-slate-50 p-4 dark:bg-slate-950">
+                <summary class="cursor-pointer font-medium">Skills</summary>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <li>Gestión de talento</li>
+                  <li>Integración calendario</li>
+                  <li>Reporte de candidatos</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Soporte Legal</h4>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Propietario: LawTech</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                  <span class="rounded-full bg-amber-100 px-3 py-1 text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Inactivo</span>
+                  <div class="relative">
+                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <details class="mt-4 rounded-2xl bg-slate-50 p-4 dark:bg-slate-950">
+                <summary class="cursor-pointer font-medium">Skills</summary>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <li>Revisión de contratos</li>
+                  <li>Generación de cláusulas</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills" class="mt-12 space-y-6">
+          <div>
+            <h3 class="text-2xl font-semibold">Catálogo de Skills</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Habilidades disponibles para adjuntar a los agentes IA.</p>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Análisis de Sentimiento</h4>
+                  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Detecta tono y emoción en retrospectivas y soporte al cliente.</p>
+                </div>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">24 agentes</span>
+              </div>
+              <div class="mt-4 flex items-center justify-between gap-3 text-sm">
+                <button class="rounded-2xl bg-slate-100 px-3 py-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200">Ver detalle</button>
+                <button class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800">Eliminar</button>
+              </div>
+            </article>
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Automatización de Calendario</h4>
+                  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Sincroniza citas, envía recordatorios y crea eventos automáticamente.</p>
+                </div>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">31 agentes</span>
+              </div>
+              <div class="mt-4 flex items-center justify-between gap-3 text-sm">
+                <button class="rounded-2xl bg-slate-100 px-3 py-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200">Ver detalle</button>
+                <button class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800">Eliminar</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="contracts" class="mt-12 space-y-6">
+          <div>
+            <h3 class="text-2xl font-semibold">Contratos de Alquiler</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Verifica fechas, agentes contratados y pagos realizados.</p>
+          </div>
+
+          <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <table class="min-w-full text-left text-sm text-slate-700 dark:text-slate-200">
+              <thead class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+                <tr>
+                  <th class="px-6 py-4">Cliente</th>
+                  <th class="px-6 py-4">Agente</th>
+                  <th class="px-6 py-4">Skills contratadas</th>
+                  <th class="px-6 py-4">Fecha</th>
+                  <th class="px-6 py-4">Importe</th>
+                  <th class="px-6 py-4">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                <tr>
+                  <td class="px-6 py-4">CorpFin</td>
+                  <td class="px-6 py-4">Asistente RH</td>
+                  <td class="px-6 py-4">3</td>
+                  <td class="px-6 py-4">12/04/2026</td>
+                  <td class="px-6 py-4">$2,450</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="errors" class="mt-12 space-y-6 pb-20">
+          <div>
+            <h3 class="text-2xl font-semibold">Registro de Errores</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Audita fallos del sistema y marca incidentes resueltos.</p>
+          </div>
+
+          <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <table class="min-w-full text-left text-sm text-slate-700 dark:text-slate-200">
+              <thead class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+                <tr>
+                  <th class="px-6 py-4">Timestamp</th>
+                  <th class="px-6 py-4">Agente</th>
+                  <th class="px-6 py-4">Tipo</th>
+                  <th class="px-6 py-4">Descripción</th>
+                  <th class="px-6 py-4">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                <tr>
+                  <td class="px-6 py-4">04/05/2026 09:42</td>
+                  <td class="px-6 py-4">Soporte Legal</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Crítico</span></td>
+                  <td class="px-6 py-4">Timeout al cargar plantillas de contrato.</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Marcar como resuelto</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="modalBackdrop" class="fixed inset-0 hidden items-center justify-center bg-slate-950/60 p-4">
+      <div id="modalContainer" class="w-full max-w-2xl rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900"></div>
+    </div>
+
+    <template id="userModalTemplate">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-xl font-semibold">Detalle de Usuario</h4>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Registro completo del usuario seleccionado.</p>
+          </div>
+          <button class="close-modal rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100">✕</button>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Nombre</p>
+            <p class="mt-2 font-medium">María González</p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Email</p>
+            <p class="mt-2 font-medium">maria@empresa.com</p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Plan</p>
+            <p class="mt-2 font-medium">Premium</p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Estado</p>
+            <p class="mt-2 font-medium">Activo</p>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Notas</p>
+          <p class="mt-3 text-sm">Cliente con suscripción anual. Requiere soporte priorizado en integraciones CRM.</p>
+        </div>
+      </div>
+    </template>
+
+    <template id="agentConfigModalTemplate">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-xl font-semibold">Configuración de Agente</h4>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Prompt de sistema y parámetros del agente.</p>
+          </div>
+          <button class="close-modal rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100">✕</button>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Prompt de sistema</p>
+          <pre class="mt-3 overflow-x-auto rounded-2xl bg-white p-4 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100">Eres un asistente legal que ayuda con revisión de contratos y plantillas.</pre>
+        </div>
+      </div>
+    </template>
+
+    <template id="contractModalTemplate">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-xl font-semibold">Detalle de Contrato</h4>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Desglose completo del alquiler y tarifas.</p>
+          </div>
+          <button class="close-modal rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100">✕</button>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Cliente</p>
+            <p class="mt-2 font-medium">CorpFin</p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Agente</p>
+            <p class="mt-2 font-medium">Asistente RH</p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Importe total</p>
+            <p class="mt-2 font-medium">$2,450</p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Fecha</p>
+            <p class="mt-2 font-medium">12/04/2026</p>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
+          <h5 class="text-sm font-semibold">Skills contratadas</h5>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>Automatización de Calendario — $1,200</li>
+            <li>Reporte de Candidatos — $850</li>
+            <li>Generación de Contratos — $400</li>
+          </ul>
+        </div>
+      </div>
+    </template>
+
+    <template id="errorModalTemplate">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-xl font-semibold">Detalle de Error</h4>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Traza completa del incidente.</p>
+          </div>
+          <button class="close-modal rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100">✕</button>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Tipo de error</p>
+          <p class="mt-2 font-medium">Timeout en plantillas</p>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Trazado</p>
+          <pre class="mt-3 overflow-x-auto whitespace-pre-wrap text-sm text-slate-700 dark:text-slate-200">2026-05-04 09:42:07 Error: Timeout al cargar la plantilla de contrato. at loadTemplate (agent.js:142) at handleRequest (agent.js:98)</pre>
+        </div>
+      </div>
+    </template>
+
+    <script>
+      const htmlEl = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const backdrop = document.getElementById('modalBackdrop');
+      const modalContainer = document.getElementById('modalContainer');
+
+      function updateThemeIcon() {
+        themeToggle.textContent = htmlEl.classList.contains('dark') ? '☀️' : '🌙';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        updateThemeIcon();
+      });
+      updateThemeIcon();
+
+      document.querySelectorAll('.action-button').forEach((button) => {
+        button.addEventListener('click', (event) => {
+          const wrapper = button.closest('td, div');
+          const menu = wrapper.querySelector('.dropdown-menu');
+          if (!menu) return;
+          wrapper.classList.toggle('dropdown-open');
+          document.addEventListener('click', (closeEvent) => {
+            if (!wrapper.contains(closeEvent.target)) {
+              wrapper.classList.remove('dropdown-open');
+            }
+          }, { once: true });
+        });
+      });
+
+      document.querySelectorAll('[data-modal]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const template = document.getElementById(button.dataset.modal + 'Template');
+          if (!template) return;
+          modalContainer.innerHTML = '';
+          modalContainer.appendChild(template.content.cloneNode(true));
+          backdrop.classList.remove('hidden');
+        });
+      });
+
+      function closeModal() {
+        backdrop.classList.add('hidden');
+        modalContainer.innerHTML = '';
+      }
+
+      backdrop.addEventListener('click', (event) => {
+        if (event.target === backdrop) closeModal();
+      });
+
+      document.addEventListener('click', (event) => {
+        if (event.target.matches('.close-modal')) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
