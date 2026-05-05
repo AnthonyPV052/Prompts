@@ -24,11 +24,39 @@
       .dropdown-open .dropdown-menu {
         display: block;
       }
+      .action-button {
+        color: #334155;
+      }
+      .action-button:hover {
+        background-color: rgba(226, 232, 240, 0.95);
+      }
+      .nav-link {
+        color: #334155;
+        transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .nav-link:hover {
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      .dark .nav-link:hover {
+        background-color: #1e293b;
+        color: #f8fafc;
+      }
+      .nav-link.active {
+        background-color: #e2e8f0;
+        color: #0f172a;
+        box-shadow: inset 0 0 0 2px #2563eb;
+      }
+      .dark .nav-link.active {
+        background-color: #0f172a;
+        color: #f8fafc;
+        box-shadow: inset 0 0 0 2px #93c5fd;
+      }
     </style>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen">
-    <div class="min-h-screen flex">
-      <aside class="w-72 bg-white/90 backdrop-blur border-r border-slate-200 dark:bg-slate-900/95 dark:border-slate-800 p-6 fixed inset-y-0 left-0">
+    <div class="min-h-screen md:flex">
+      <aside class="w-full md:w-72 bg-white/90 backdrop-blur border-b md:border-r border-slate-200 dark:bg-slate-900/95 dark:border-slate-800 p-6 md:fixed md:inset-y-0 md:left-0">
         <div class="flex items-center justify-between mb-10">
           <div>
             <p class="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">Plataforma SaaS</p>
@@ -38,16 +66,16 @@
         </div>
 
         <nav class="space-y-2 text-sm">
-          <a href="#dashboard" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Dashboard</a>
-          <a href="#users" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Usuarios</a>
-          <a href="#agents" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Agentes</a>
-          <a href="#skills" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
-          <a href="#contracts" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Contratos</a>
-          <a href="#errors" class="block rounded-2xl px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800">Errores</a>
+          <a href="#dashboard" class="nav-link active block rounded-2xl px-4 py-3" aria-current="page">Dashboard</a>
+          <a href="#users" class="nav-link block rounded-2xl px-4 py-3">Usuarios</a>
+          <a href="#agents" class="nav-link block rounded-2xl px-4 py-3">Agentes</a>
+          <a href="#skills" class="nav-link block rounded-2xl px-4 py-3">Skills</a>
+          <a href="#contracts" class="nav-link block rounded-2xl px-4 py-3">Contratos</a>
+          <a href="#errors" class="nav-link block rounded-2xl px-4 py-3">Errores</a>
         </nav>
       </aside>
 
-      <main class="flex-1 ml-72 p-8">
+      <main class="flex-1 md:ml-72 p-8">
         <section id="dashboard" class="space-y-6">
           <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
@@ -59,25 +87,80 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-              <p class="text-sm text-slate-500 dark:text-slate-400">Ingresos mensuales totales</p>
+              <div class="flex items-center gap-3">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200">💰</div>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Ingresos mensuales totales</p>
+              </div>
               <p class="mt-4 text-3xl font-semibold">$138,450</p>
               <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Generados por todos los agentes en producción.</p>
             </article>
             <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-              <p class="text-sm text-slate-500 dark:text-slate-400">Pérdida por descuentos</p>
+              <div class="flex items-center gap-3">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">🏷️</div>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Pérdida por descuentos</p>
+              </div>
               <p class="mt-4 text-3xl font-semibold">$9,720</p>
               <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Cupones y promociones aplicadas este mes.</p>
             </article>
             <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-              <p class="text-sm text-slate-500 dark:text-slate-400">Agentes activos</p>
+              <div class="flex items-center gap-3">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">🟢</div>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Agentes activos</p>
+              </div>
               <p class="mt-4 text-3xl font-semibold">128</p>
               <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Agentes desplegados actualmente con clientes.</p>
             </article>
             <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-              <p class="text-sm text-slate-500 dark:text-slate-400">Agentes fallando</p>
+              <div class="flex items-center gap-3">
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">⚠️</div>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Agentes fallando</p>
+              </div>
               <p class="mt-4 text-3xl font-semibold text-rose-600 dark:text-rose-400">11</p>
               <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Incidentes detectados en los últimos 30 minutos.</p>
             </article>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="text-lg font-semibold">Actividad Semanal</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Interacciones de agentes por día</p>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-slate-600 dark:text-slate-300">Esta semana</span>
+                <button class="rounded-2xl bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200">Ver más</button>
+              </div>
+            </div>
+            <div class="h-64 flex items-end justify-between gap-2">
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 40%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Lun</p>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 60%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Mar</p>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 80%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Mié</p>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 70%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Jue</p>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 90%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Vie</p>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 50%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Sáb</p>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="w-full bg-indigo-200 dark:bg-indigo-800 rounded-t-lg" style="height: 30%"></div>
+                <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Dom</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -108,8 +191,9 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
                   <td class="px-6 py-4 relative">
                     <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
                   </td>
                 </tr>
@@ -120,8 +204,48 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Pendiente</span></td>
                   <td class="px-6 py-4 relative">
                     <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Lucía Torres</td>
+                  <td class="px-6 py-4">lucia@tech.mx</td>
+                  <td class="px-6 py-4">Empresa</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Ana Méndez</td>
+                  <td class="px-6 py-4">ana@marketing.ag</td>
+                  <td class="px-6 py-4">Business</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Óscar Vega</td>
+                  <td class="px-6 py-4">oscar@logistics.net</td>
+                  <td class="px-6 py-4">Enterprise</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Inactivo</span></td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
                   </td>
                 </tr>
@@ -191,6 +315,58 @@
                 </ul>
               </details>
             </article>
+
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Centro de Ventas</h4>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Propietario: SalesPro</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                  <span class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
+                  <div class="relative">
+                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <details class="mt-4 rounded-2xl bg-slate-50 p-4 dark:bg-slate-950">
+                <summary class="cursor-pointer font-medium">Skills</summary>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <li>Automatización de calendario</li>
+                  <li>Seguimiento de oportunidades</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Análisis Financiero</h4>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Propietario: FinEdge</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                  <span class="rounded-full bg-rose-100 px-3 py-1 text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Fallando</span>
+                  <div class="relative">
+                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <details class="mt-4 rounded-2xl bg-slate-50 p-4 dark:bg-slate-950">
+                <summary class="cursor-pointer font-medium">Skills</summary>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <li>Validación de escenarios</li>
+                  <li>Simulación de riesgos</li>
+                </ul>
+              </details>
+            </article>
           </div>
         </section>
 
@@ -198,6 +374,7 @@
           <div>
             <h3 class="text-2xl font-semibold">Catálogo de Skills</h3>
             <p class="text-sm text-slate-500 dark:text-slate-400">Habilidades disponibles para adjuntar a los agentes IA.</p>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">En AgentHub, una skill es una capacidad reusable de IA que se puede añadir a los agentes para que atiendan tareas específicas de negocio, como automatizar calendarios, analizar sentimiento o generar contratos.</p>
           </div>
 
           <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -207,11 +384,16 @@
                   <h4 class="text-lg font-semibold">Análisis de Sentimiento</h4>
                   <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Detecta tono y emoción en retrospectivas y soporte al cliente.</p>
                 </div>
-                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">24 agentes</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">3 agentes</span>
               </div>
-              <div class="mt-4 flex items-center justify-between gap-3 text-sm">
-                <button class="rounded-2xl bg-slate-100 px-3 py-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200">Ver detalle</button>
-                <button class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800">Eliminar</button>
+              <div class="mt-4 flex items-center justify-end gap-3 text-sm">
+                <div class="relative">
+                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Análisis de Sentimiento">Ver detalle</button>
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                  </div>
+                </div>
               </div>
             </article>
             <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
@@ -220,11 +402,52 @@
                   <h4 class="text-lg font-semibold">Automatización de Calendario</h4>
                   <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Sincroniza citas, envía recordatorios y crea eventos automáticamente.</p>
                 </div>
-                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">31 agentes</span>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">2 agentes</span>
               </div>
-              <div class="mt-4 flex items-center justify-between gap-3 text-sm">
-                <button class="rounded-2xl bg-slate-100 px-3 py-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200">Ver detalle</button>
-                <button class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-800">Eliminar</button>
+              <div class="mt-4 flex items-center justify-end gap-3 text-sm">
+                <div class="relative">
+                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Automatización de Calendario">Ver detalle</button>
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Gestión de Facturas</h4>
+                  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Automatiza la creación, validación y envíos de facturas de servicio.</p>
+                </div>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">4 agentes</span>
+              </div>
+              <div class="mt-4 flex items-center justify-end gap-3 text-sm">
+                <div class="relative">
+                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Gestión de Facturas">Ver detalle</button>
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="text-lg font-semibold">Seguimiento de Leads</h4>
+                  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Clasifica y prioriza oportunidades de venta con datos en tiempo real.</p>
+                </div>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">3 agentes</span>
+              </div>
+              <div class="mt-4 flex items-center justify-end gap-3 text-sm">
+                <div class="relative">
+                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Seguimiento de Leads">Ver detalle</button>
+                    <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
+                  </div>
+                </div>
               </div>
             </article>
           </div>
@@ -255,6 +478,45 @@
                   <td class="px-6 py-4">3</td>
                   <td class="px-6 py-4">12/04/2026</td>
                   <td class="px-6 py-4">$2,450</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">MindSpace</td>
+                  <td class="px-6 py-4">Soporte Legal</td>
+                  <td class="px-6 py-4">2</td>
+                  <td class="px-6 py-4">20/04/2026</td>
+                  <td class="px-6 py-4">$1,980</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">NovaRetail</td>
+                  <td class="px-6 py-4">Centro de Ventas</td>
+                  <td class="px-6 py-4">4</td>
+                  <td class="px-6 py-4">25/04/2026</td>
+                  <td class="px-6 py-4">$3,200</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">LogiCorp</td>
+                  <td class="px-6 py-4">Análisis Financiero</td>
+                  <td class="px-6 py-4">1</td>
+                  <td class="px-6 py-4">28/04/2026</td>
+                  <td class="px-6 py-4">$1,150</td>
                   <td class="px-6 py-4 relative">
                     <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
                     <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
@@ -294,7 +556,72 @@
                     <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
                     <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
-                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Marcar como resuelto</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">04/05/2026 10:08</td>
+                  <td class="px-6 py-4">Centro de Ventas</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Medio</span></td>
+                  <td class="px-6 py-4">Error de integración con CRM externo.</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">04/05/2026 10:35</td>
+                  <td class="px-6 py-4">Automatización de Calendario</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Medio</span></td>
+                  <td class="px-6 py-4">Falló la sincronización con Google Calendar.</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">04/05/2026 11:12</td>
+                  <td class="px-6 py-4">Análisis Financiero</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Crítico</span></td>
+                  <td class="px-6 py-4">Detección de anomalía en cálculo de riesgo.</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">04/05/2026 11:48</td>
+                  <td class="px-6 py-4">Seguimiento de Leads</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-200">Bajo</span></td>
+                  <td class="px-6 py-4">Retraso en actualización de estado de prospectos.</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">04/05/2026 12:10</td>
+                  <td class="px-6 py-4">Soporte Legal</td>
+                  <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Medio</span></td>
+                  <td class="px-6 py-4">Falla intermitente al guardar cambios en la plantilla.</td>
+                  <td class="px-6 py-4 relative">
+                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
+                      <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
                   </td>
                 </tr>
@@ -354,7 +681,7 @@
         </div>
         <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
           <p class="text-sm text-slate-500 dark:text-slate-400">Prompt de sistema</p>
-          <pre class="mt-3 overflow-x-auto rounded-2xl bg-white p-4 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100">Eres un asistente legal que ayuda con revisión de contratos y plantillas.</pre>
+          <textarea class="mt-3 w-full min-h-[10rem] rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-800 shadow-sm focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" spellcheck="false">Eres un asistente legal que ayuda con revisión de contratos y plantillas.</textarea>
         </div>
       </div>
     </template>
@@ -417,6 +744,32 @@
       </div>
     </template>
 
+    <template id="skillModalTemplate">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-xl font-semibold skill-name">Detalle de Skill</h4>
+            <p class="text-sm text-slate-500 dark:text-slate-400 skill-summary">Información detallada de la skill seleccionada.</p>
+          </div>
+          <button class="close-modal rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100">✕</button>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Modelos disponibles</p>
+            <ul class="mt-2 space-y-2 text-sm text-slate-700 dark:text-slate-200 skill-models"></ul>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Contratos habilitados</p>
+            <ul class="mt-2 space-y-2 text-sm text-slate-700 dark:text-slate-200 skill-contracts"></ul>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-4 dark:bg-slate-950">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Descripción extendida</p>
+          <p class="mt-3 text-sm text-slate-700 dark:text-slate-200 skill-details"></p>
+        </div>
+      </div>
+    </template>
+
     <script>
       const htmlEl = document.documentElement;
       const themeToggle = document.getElementById('themeToggle');
@@ -433,26 +786,78 @@
       });
       updateThemeIcon();
 
+      const skillDetails = {
+        'Análisis de Sentimiento': {
+          models: ['sentiment-2026-small', 'sentiment-2026-medium'],
+          contracts: ['Contrato de Soporte Legal', 'Contrato de Atención al Cliente'],
+          details: 'Analiza tono y emoción para mejorar respuestas automáticas y priorizar casos de soporte según urgencia.',
+        },
+        'Automatización de Calendario': {
+          models: ['calendar-sync-v2', 'event-builder-2026'],
+          contracts: ['Contrato de Gestión de Citas', 'Contrato de Booking Automático'],
+          details: 'Sincroniza eventos y recordatorios con agendas externas, reduciendo errores manuales y cancelaciones.',
+        },
+        'Gestión de Facturas': {
+          models: ['invoice-gen-2026', 'doc-validator'],
+          contracts: ['Contrato de Facturación Mensual', 'Contrato de Auditoría Fiscal'],
+          details: 'Genera y valida facturas automáticamente, con checks de impuestos y envíos a clientes en un solo flujo.',
+        },
+        'Seguimiento de Leads': {
+          models: ['lead-score-2026', 'pipeline-navigator'],
+          contracts: ['Contrato de CRM', 'Contrato de Ventas Inteligentes'],
+          details: 'Clasifica oportunidades de venta y envía alertas proactivas a los equipos comerciales cuando cambian prioridades.',
+        },
+      };
+
       document.querySelectorAll('.action-button').forEach((button) => {
         button.addEventListener('click', (event) => {
+          event.stopPropagation();
           const wrapper = button.closest('td, div');
           const menu = wrapper.querySelector('.dropdown-menu');
           if (!menu) return;
-          wrapper.classList.toggle('dropdown-open');
-          document.addEventListener('click', (closeEvent) => {
-            if (!wrapper.contains(closeEvent.target)) {
-              wrapper.classList.remove('dropdown-open');
-            }
-          }, { once: true });
+          const isOpen = wrapper.classList.contains('dropdown-open');
+          document.querySelectorAll('.dropdown-open').forEach((openWrapper) => {
+            if (openWrapper !== wrapper) openWrapper.classList.remove('dropdown-open');
+          });
+          wrapper.classList.toggle('dropdown-open', !isOpen);
         });
       });
 
+      document.addEventListener('click', (event) => {
+        if (!event.target.closest('.dropdown-open') && !event.target.closest('.action-button')) {
+          document.querySelectorAll('.dropdown-open').forEach((wrapper) => wrapper.classList.remove('dropdown-open'));
+        }
+      });
+
       document.querySelectorAll('[data-modal]').forEach((button) => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          document.querySelectorAll('.dropdown-open').forEach((wrapper) => {
+            wrapper.classList.remove('dropdown-open');
+          });
+
           const template = document.getElementById(button.dataset.modal + 'Template');
           if (!template) return;
+          const clone = template.content.cloneNode(true);
+
+          if (button.dataset.modal === 'skillModal') {
+            const skillName = button.dataset.skill || 'Skill';
+            const details = skillDetails[skillName] || {
+              models: ['Modelo AI genérico'],
+              contracts: ['Contrato general'],
+              details: 'Información adicional sobre la skill seleccionada.',
+            };
+            clone.querySelector('.skill-name').textContent = skillName;
+            clone.querySelector('.skill-summary').textContent = `Detalles de ${skillName} para agentes activados.`;
+            clone.querySelector('.skill-details').textContent = details.details;
+            const modelsList = clone.querySelector('.skill-models');
+            const contractsList = clone.querySelector('.skill-contracts');
+            modelsList.innerHTML = details.models.map((item) => `<li>• ${item}</li>`).join('');
+            contractsList.innerHTML = details.contracts.map((item) => `<li>• ${item}</li>`).join('');
+          }
+
           modalContainer.innerHTML = '';
-          modalContainer.appendChild(template.content.cloneNode(true));
+          modalContainer.appendChild(clone);
           backdrop.classList.remove('hidden');
         });
       });
@@ -471,6 +876,29 @@
           closeModal();
         }
       });
+
+      const navLinks = document.querySelectorAll('aside nav a.nav-link');
+      const sections = document.querySelectorAll('main section[id]');
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const navLink = document.querySelector(`aside nav a[href="#${entry.target.id}"]`);
+            if (!navLink) return;
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+              });
+              navLink.classList.add('active');
+              navLink.setAttribute('aria-current', 'page');
+            }
+          });
+        },
+        { root: null, rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
     </script>
   </body>
 </html>
