@@ -17,42 +17,6 @@
         },
       };
     </script>
-    <style>
-      .dropdown-menu {
-        display: none;
-      }
-      .dropdown-open .dropdown-menu {
-        display: block;
-      }
-      .action-button {
-        color: #334155;
-      }
-      .action-button:hover {
-        background-color: rgba(226, 232, 240, 0.95);
-      }
-      .nav-link {
-        color: #334155;
-        transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-      }
-      .nav-link:hover {
-        background-color: #f8fafc;
-        color: #0f172a;
-      }
-      .dark .nav-link:hover {
-        background-color: #1e293b;
-        color: #f8fafc;
-      }
-      .nav-link.active {
-        background-color: #e2e8f0;
-        color: #0f172a;
-        box-shadow: inset 0 0 0 2px #2563eb;
-      }
-      .dark .nav-link.active {
-        background-color: #0f172a;
-        color: #f8fafc;
-        box-shadow: inset 0 0 0 2px #93c5fd;
-      }
-    </style>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen">
     <div class="min-h-screen md:flex">
@@ -66,12 +30,12 @@
         </div>
 
         <nav class="space-y-2 text-sm">
-          <a href="#dashboard" class="nav-link active block rounded-2xl px-4 py-3" aria-current="page">Dashboard</a>
-          <a href="#users" class="nav-link block rounded-2xl px-4 py-3">Usuarios</a>
-          <a href="#agents" class="nav-link block rounded-2xl px-4 py-3">Agentes</a>
-          <a href="#skills" class="nav-link block rounded-2xl px-4 py-3">Skills</a>
-          <a href="#contracts" class="nav-link block rounded-2xl px-4 py-3">Contratos</a>
-          <a href="#errors" class="nav-link block rounded-2xl px-4 py-3">Errores</a>
+          <a href="#dashboard" class="nav-link block rounded-2xl px-4 py-3 text-slate-700 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50 bg-slate-200 text-slate-900 ring-2 ring-inset ring-blue-600 dark:bg-slate-900 dark:text-slate-50 dark:ring-blue-300" aria-current="page">Dashboard</a>
+          <a href="#users" class="nav-link block rounded-2xl px-4 py-3 text-slate-700 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50">Usuarios</a>
+          <a href="#agents" class="nav-link block rounded-2xl px-4 py-3 text-slate-700 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50">Agentes</a>
+          <a href="#skills" class="nav-link block rounded-2xl px-4 py-3 text-slate-700 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50">Skills</a>
+          <a href="#contracts" class="nav-link block rounded-2xl px-4 py-3 text-slate-700 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50">Contratos</a>
+          <a href="#errors" class="nav-link block rounded-2xl px-4 py-3 text-slate-700 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50">Errores</a>
         </nav>
       </aside>
 
@@ -190,8 +154,8 @@
                   <td class="px-6 py-4">Premium</td>
                   <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -203,8 +167,8 @@
                   <td class="px-6 py-4">Básico</td>
                   <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Pendiente</span></td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -216,8 +180,8 @@
                   <td class="px-6 py-4">Empresa</td>
                   <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -229,8 +193,8 @@
                   <td class="px-6 py-4">Business</td>
                   <td class="px-6 py-4"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span></td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -242,8 +206,8 @@
                   <td class="px-6 py-4">Enterprise</td>
                   <td class="px-6 py-4"><span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Inactivo</span></td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-expanded="false" aria-haspopup="menu">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="userModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -272,8 +236,8 @@
                 <div class="flex items-center gap-2 text-sm">
                   <span class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
                   <div class="relative">
-                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -299,8 +263,8 @@
                 <div class="flex items-center gap-2 text-sm">
                   <span class="rounded-full bg-amber-100 px-3 py-1 text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Inactivo</span>
                   <div class="relative">
-                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -325,8 +289,8 @@
                 <div class="flex items-center gap-2 text-sm">
                   <span class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
                   <div class="relative">
-                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -351,8 +315,8 @@
                 <div class="flex items-center gap-2 text-sm">
                   <span class="rounded-full bg-rose-100 px-3 py-1 text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Fallando</span>
                   <div class="relative">
-                    <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="agentConfigModal">Configurar</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                     </div>
@@ -388,8 +352,8 @@
               </div>
               <div class="mt-4 flex items-center justify-end gap-3 text-sm">
                 <div class="relative">
-                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                  <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Análisis de Sentimiento">Ver detalle</button>
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                   </div>
@@ -406,8 +370,8 @@
               </div>
               <div class="mt-4 flex items-center justify-end gap-3 text-sm">
                 <div class="relative">
-                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                  <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Automatización de Calendario">Ver detalle</button>
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                   </div>
@@ -424,8 +388,8 @@
               </div>
               <div class="mt-4 flex items-center justify-end gap-3 text-sm">
                 <div class="relative">
-                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                  <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Gestión de Facturas">Ver detalle</button>
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                   </div>
@@ -442,8 +406,8 @@
               </div>
               <div class="mt-4 flex items-center justify-end gap-3 text-sm">
                 <div class="relative">
-                  <button class="action-button inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                  <div class="dropdown-menu absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                  <button data-dropdown-toggle="true" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                  <div class="dropdown-menu hidden absolute right-0 top-11 z-10 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="skillModal" data-skill="Seguimiento de Leads">Ver detalle</button>
                     <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Eliminar</button>
                   </div>
@@ -479,8 +443,8 @@
                   <td class="px-6 py-4">12/04/2026</td>
                   <td class="px-6 py-4">$2,450</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
                     </div>
                   </td>
@@ -492,8 +456,8 @@
                   <td class="px-6 py-4">20/04/2026</td>
                   <td class="px-6 py-4">$1,980</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
                     </div>
                   </td>
@@ -505,8 +469,8 @@
                   <td class="px-6 py-4">25/04/2026</td>
                   <td class="px-6 py-4">$3,200</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
                     </div>
                   </td>
@@ -518,8 +482,8 @@
                   <td class="px-6 py-4">28/04/2026</td>
                   <td class="px-6 py-4">$1,150</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="contractModal">Ver detalles</button>
                     </div>
                   </td>
@@ -553,8 +517,8 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Crítico</span></td>
                   <td class="px-6 py-4">Timeout al cargar plantillas de contrato.</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
@@ -566,8 +530,8 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Medio</span></td>
                   <td class="px-6 py-4">Error de integración con CRM externo.</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
@@ -579,8 +543,8 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Medio</span></td>
                   <td class="px-6 py-4">Falló la sincronización con Google Calendar.</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
@@ -592,8 +556,8 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Crítico</span></td>
                   <td class="px-6 py-4">Detección de anomalía en cálculo de riesgo.</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
@@ -605,8 +569,8 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-200">Bajo</span></td>
                   <td class="px-6 py-4">Retraso en actualización de estado de prospectos.</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
@@ -618,8 +582,8 @@
                   <td class="px-6 py-4"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Medio</span></td>
                   <td class="px-6 py-4">Falla intermitente al guardar cambios en la plantilla.</td>
                   <td class="px-6 py-4 relative">
-                    <button class="action-button inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
-                    <div class="dropdown-menu absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                    <button data-dropdown-toggle="true" class="inline-flex items-center rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">⋮</button>
+                    <div class="dropdown-menu hidden absolute right-6 top-14 z-10 w-44 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-modal="errorModal">Ver detalles</button>
                       <button class="w-full rounded-2xl px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800" data-resolve="true">Marcar como resuelto</button>
                     </div>
@@ -809,32 +773,51 @@
         },
       };
 
-      document.querySelectorAll('.action-button').forEach((button) => {
+      const activeNavClasses = [
+        'bg-slate-200',
+        'text-slate-900',
+        'ring-2',
+        'ring-inset',
+        'ring-blue-600',
+        'dark:bg-slate-900',
+        'dark:text-slate-50',
+        'dark:ring-blue-300',
+      ];
+
+      function closeAllDropdowns() {
+        document.querySelectorAll('[data-dropdown-toggle="true"]').forEach((toggleButton) => {
+          const wrapper = toggleButton.closest('td, div');
+          const menu = wrapper?.querySelector('.dropdown-menu');
+          if (menu) menu.classList.add('hidden');
+          toggleButton.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.querySelectorAll('[data-dropdown-toggle="true"]').forEach((button) => {
         button.addEventListener('click', (event) => {
           event.stopPropagation();
           const wrapper = button.closest('td, div');
-          const menu = wrapper.querySelector('.dropdown-menu');
+          const menu = wrapper?.querySelector('.dropdown-menu');
           if (!menu) return;
-          const isOpen = wrapper.classList.contains('dropdown-open');
-          document.querySelectorAll('.dropdown-open').forEach((openWrapper) => {
-            if (openWrapper !== wrapper) openWrapper.classList.remove('dropdown-open');
-          });
-          wrapper.classList.toggle('dropdown-open', !isOpen);
+          const isOpen = !menu.classList.contains('hidden');
+          closeAllDropdowns();
+          if (!isOpen) {
+            menu.classList.remove('hidden');
+            button.setAttribute('aria-expanded', 'true');
+          }
         });
       });
 
       document.addEventListener('click', (event) => {
-        if (!event.target.closest('.dropdown-open') && !event.target.closest('.action-button')) {
-          document.querySelectorAll('.dropdown-open').forEach((wrapper) => wrapper.classList.remove('dropdown-open'));
+        if (!event.target.closest('.dropdown-menu') && !event.target.closest('[data-dropdown-toggle="true"]')) {
+          closeAllDropdowns();
         }
       });
 
       document.querySelectorAll('[data-modal]').forEach((button) => {
         button.addEventListener('click', (event) => {
           event.stopPropagation();
-          document.querySelectorAll('.dropdown-open').forEach((wrapper) => {
-            wrapper.classList.remove('dropdown-open');
-          });
+          closeAllDropdowns();
 
           const template = document.getElementById(button.dataset.modal + 'Template');
           if (!template) return;
@@ -887,10 +870,10 @@
             if (!navLink) return;
             if (entry.isIntersecting) {
               navLinks.forEach((link) => {
-                link.classList.remove('active');
+                link.classList.remove(...activeNavClasses);
                 link.removeAttribute('aria-current');
               });
-              navLink.classList.add('active');
+              navLink.classList.add(...activeNavClasses);
               navLink.setAttribute('aria-current', 'page');
             }
           });
